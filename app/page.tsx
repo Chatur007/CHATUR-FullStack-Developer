@@ -285,7 +285,6 @@ export default function HomePage() {
                 <img src="/images/zoho.png" className="skill zoho" data-skill="Zoho" alt="Zoho" />
               </div>
             </div>
-            {/* Force HMR */}
             <div id="skill-info"></div>
           </div>
         </div>
