@@ -1,26 +1,518 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #ffffff;
+    --foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+#main {
+    position: relative;
+    overflow: hidden;
+}
+
+#page {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+
+#page1 {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+
+#page2 {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+
+
+#page3 {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f1f1f1;
+}
+
+canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+#loop {
+    display: flex;
+    position: absolute;
+    top: 30%;
+    height: 25%;
+    width: 100%;
+    white-space: nowrap;
+    font-size: 150px;
+    font-family: "Cinzel Decorative", serif;
+}
+
+#loop>h1 {
+    font-weight: 500;
+    animation: anim;
+    animation-duration: 19s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#loop>h1>b {
+    -webkit-text-stroke: 1.2px #000;
+    color: transparent
+}
+
+@keyframes anim {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 7%;
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+
+#nav>h3 {
+    font-size: 30px;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#nav>button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+#nav>button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: aqua;
+}
+
+#page>h3 {
+    position: absolute;
+    top: 50%;
+    padding: 30px 40px;
+    font-family: "Quintessential", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#page>h4 {
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    font-size: 30px;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 10px;
+}
+
+#heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#page1>#heading>h1 {
+    font-family: "Cinzel Decorative", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 100px;
+}
+
+/* #eduCard1{
+    position: absolute;
+    height:350px;
+    width: 350px;
+    left:100px;
+    top:250px;
+    perspective: 1000px;
+    z-index: 100;
+     cursor: pointer;
+     pointer-events: auto;
+
+}
+.card-inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style:preserve-3d;
+    pointer-events: auto;
+  
+}
+.card-front,.card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 2px solid black;
+    background-color: #f1f1f1;
+    box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.2);
+    border-radius: 20px 5px 20px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.card-back {
+    transform: rotateY(180deg);
+} */
+
+#page1>#right-text {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}
+
+#page1>#right-text>h3 {
+    font-weight: 400;
+    color: #7c7c7c;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+#page1>#right-text>h1 {
+    line-height: 1.2;
+    font-size: 40px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+#page1>#left-text {
+    position: absolute;
+    right: 4%;
+    top: 60%;
+    text-align: end;
+}
+
+#page1>#left-text>h3 {
+    font-weight: 400;
+    color: #7c7c7c;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+#page1>#left-text>h1 {
+    line-height: 1.2;
+    font-size: 40px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+#text1 {
+    position: absolute;
+    left: 5%;
+    top: 30%
+}
+
+#page2>#text1>h3 {
+    font-weight: 400;
+    color: #7c7c7c;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+#page2>#text1>h1 {
+    line-height: 1.2;
+    font-size: 40px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+#skills-visual {
+    position: absolute;
+    right: 10%;
+    top: 60%;
+    width: 450px;
+    height: 450px;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.orbit>div {
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #e8e8e8);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    display: grid;
+    place-items: center;
+    --lift: 0px;
+    --zoom: 1;
+    transform: translate(-50%, -50%) translateY(var(--lift)) scale(var(--zoom));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orbit>div:hover {
+    --lift: -6px;
+    --zoom: 1.04;
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.skill {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
+    opacity: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover {
+    transform: scale(1.08);
+}
+
+.logo1 {
+    top: 14%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo2 {
+    top: 27.5%;
+    left: 78.1%;
+    transform: translate(-50%, -50%);
+}
+
+.logo3 {
+    top: 58%;
+    left: 85.1%;
+    transform: translate(-50%, -50%);
+}
+
+.logo4 {
+    top: 82.4%;
+    left: 65.6%;
+    transform: translate(-50%, -50%);
+}
+
+.logo5 {
+    top: 82.4%;
+    left: 34.4%;
+    transform: translate(-50%, -50%);
+}
+
+.logo6 {
+    top: 58%;
+    left: 14.9%;
+    transform: translate(-50%, -50%);
+}
+
+.logo7 {
+    top: 27.5%;
+    left: 21.9%;
+    transform: translate(-50%, -50%);
+}
+
+#skill-info {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-family: "Orbitron";
+}
+
+#page2>img {
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    #skills-visual {
+        right: 50%;
+        top: 72%;
+        width: 320px;
+        height: 320px;
+        transform: translate(50%, -50%);
+    }
+
+    .orbit>div {
+        width: 78px;
+        height: 78px;
+    }
+
+    #page2>#text1>h1 {
+        font-size: 30px;
+    }
+}
+
+#page3>#text2 {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    text-align: right;
+}
+
+#page3>#text2>h3 {
+    font-weight: 400;
+    color: #7c7c7c;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+#page3>#text2>h1 {
+    line-height: 1.2;
+    font-size: 50px;
+    font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
+
+#page3>#text3 {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+}
+
+#page3>#text3>p {
+    font-family: "Quintessential", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+
+}
+
+#nav-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30%;
+    width: 4%;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 70%;
+    z-index: 99;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+#nav-bar>h1 {
+    font-size: 40px;
+    color: #f1f1f1;
+    font-family: "Cinzel Decorative", serif;
+
+}
+
+    
+#nav-bar>button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+    ;
+    border: 0;
+    color: #f1f1f1;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#nav-bar>button:hover {
+    scale: 1.2;
+    color: aqua;
+}
+
+#nav-bar>button>a {
+    color: inherit;
+    text-decoration: none;
 }
